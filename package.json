@@ -1,0 +1,43 @@
+{
+  "name": "isocraft",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint '*/**/*.{js,ts}' --quiet --fix"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/stats.js": "^0.17.0",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1",
+    "sass": "^1.57.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vite-plugin-ngmi-polyfill": "^0.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "stats.js": "^0.17.0",
+    "typedi": "^0.10.0"
+  }
+}

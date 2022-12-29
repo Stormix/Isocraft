@@ -1,0 +1,24 @@
+ html,
+  body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    width: 100%;
+    height: 100%;
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  #gameArea {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    // transform: translate(-50%, -50%); // TODO: remove when resizing
+  }
