@@ -13,5 +13,5 @@ export abstract class Scene extends Container implements Process {
     this.visible = false
   }
 
-  update(deltaTime: number) {}
+  abstract update(deltaTime: number): void
 }

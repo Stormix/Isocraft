@@ -47,9 +47,7 @@ export default class Game implements Process {
   }
 
   constructor(private _engine: Engine) {
-    this.logger.info('Game created.')
     this._scene = new LoadingScene(this)
-    this.logger.info('Game is loading...')
   }
 
   load(): void {

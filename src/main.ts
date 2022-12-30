@@ -1,5 +1,3 @@
-import 'reflect-metadata'
-
 import container from './container'
 import Engine from './engine'
 import Game from './game'

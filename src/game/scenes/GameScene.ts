@@ -34,5 +34,5 @@ export class GameScene extends Scene {
     super.stop()
   }
 
-  public update(deltaTime: number): void {}
+  public update(_deltaTime: number): void {}
 }

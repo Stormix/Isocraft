@@ -50,6 +50,14 @@ export default class Engine {
     return this._loader
   }
 
+  get time() {
+    return this._gameTime
+  }
+
+  get elapsed() {
+    return this._elapsed
+  }
+
   private onResize() {
     this.logger.info('Window resized')
 

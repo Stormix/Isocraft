@@ -1,3 +1,5 @@
+import 'reflect-metadata'
+
 import { ContainerBuilder } from 'diod'
 import Engine from './engine'
 import Logger from './engine/core/logger'
