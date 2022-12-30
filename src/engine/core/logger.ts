@@ -1,10 +1,10 @@
 import { APP_NAME } from '../config/constants'
-import { Service } from 'typedi'
+import { Service } from 'diod'
 
 type LogLevelType = 'debug' | 'error' | 'info' | 'log' | 'warn'
 
 @Service()
-class Logger {
+export default class Logger {
   log(level: LogLevelType, ...args: any[]): void {
     console[level](`%c ${APP_NAME}:`, 'color: #499ceb', ...args, '|', new Date().toUTCString())
   }
@@ -22,5 +22,3 @@ class Logger {
     this.log('error', ...args)
   }
 }
-
-export default Logger

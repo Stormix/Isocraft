@@ -1,0 +1,5 @@
+export enum Events {
+  // Loading
+  LOADING_PROGRESS = 'LOADING_PROGRESS',
+  LOADING_COMPLETE = 'LOADING_COMPLETE'
+}
