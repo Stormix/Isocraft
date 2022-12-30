@@ -47,13 +47,13 @@ export default class Game implements Process {
   }
 
   constructor(private _engine: Engine) {
-    this.logger.debug('Game created.')
+    this.logger.info('Game created.')
     this._scene = new LoadingScene(this)
-    this.logger.debug('Game is loading...')
+    this.logger.info('Game is loading...')
   }
 
   load(): void {
-    this.logger.debug('Game loading...')
+    this.logger.info('Game loading...')
     this._scene?.start()
 
     this._engine.loader.onError.add(() => this.logger.error('Error loading resources.'))
@@ -69,11 +69,11 @@ export default class Game implements Process {
   }
 
   start(): void {
-    this.logger.debug('Game started.')
+    this.logger.info('Game started.')
   }
 
   stop(): void {
-    this.logger.debug('Game ended.')
+    this.logger.info('Game ended.')
     delete this._scene
   }
 
@@ -86,7 +86,7 @@ export default class Game implements Process {
   }
 
   switchScene(scene: Scene) {
-    this.logger.debug('Switching scene, from ' + this._scene?.name + ' to ' + scene.name + '.')
+    this.logger.info('Switching scene, from ' + this._scene?.name + ' to ' + scene.name + '.')
     this._scene?.stop()
     this._scene = scene
     this._scene.start()

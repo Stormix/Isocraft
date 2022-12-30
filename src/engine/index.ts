@@ -51,7 +51,7 @@ export default class Engine {
   }
 
   private onResize() {
-    this.logger.debug('Window resized')
+    this.logger.info('Window resized')
 
     let width = window.innerWidth
     let height = window.innerHeight
@@ -97,7 +97,7 @@ export default class Engine {
       document.body.appendChild(this._stats.dom)
       // Pixi Inspector
       if (window?.__PIXI_INSPECTOR_GLOBAL_HOOK__) {
-        this.logger.debug('Pixi Inspector found, registering...')
+        this.logger.info('Pixi Inspector found, registering...')
         window.__PIXI_INSPECTOR_GLOBAL_HOOK__.register({ PIXI: PIXI })
       }
     }
