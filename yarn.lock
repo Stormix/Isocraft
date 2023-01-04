@@ -423,6 +423,33 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@hmans/event@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@hmans/event/-/event-0.2.0.tgz#c51efb52277258767b1777a78acb1cdc7dc22b14"
+  integrity sha512-VrDaUafGrcT2yuC59yTxpxT7KsWoST6zNd/JdATgU4y/jEHghL5yqY9sNftNajo5VpzJkF9XxwxBixz6UlGNfg==
+
+"@hmans/queue@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@hmans/queue/-/queue-0.0.1.tgz#48aa6bed978501d0d78469eb9ddc9bcf71b76ebf"
+  integrity sha512-Mm8oQRFRoiEYQ3QD9CD14DTaShd21nzNrUFyBhFxy+TduKf2PdMRfHHx7lDvEpbODGNlj+e8mcWGj/YjWmC3Bw==
+
+"@hmans/use-const@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@hmans/use-const/-/use-const-0.0.1.tgz#5e1c798918d923bc27145d2073adbf2ce51ca409"
+  integrity sha512-qYWCVLc6NjVq7PcwoCZ/i70VvmBZ+Nni/ZC5qauzksZB1l8M6ltyTs5MEvDC+Z1O/eUKPkiEvCPwgAqiP619BQ==
+
+"@hmans/use-rerender@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@hmans/use-rerender/-/use-rerender-0.0.2.tgz#81dd0dba733cdb43816119ebb03e62026f0587ff"
+  integrity sha512-Z4So8S8Gg2Iudr1ldClZVhq2mO/sAbhzvlQ1RD9F5Ez4rJlx3CY7++XuMwemcz05DAyNBRUrYtl+eL+uiIzI7A==
+  dependencies:
+    "@hmans/use-version" "^0.0.2"
+
+"@hmans/use-version@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@hmans/use-version/-/use-version-0.0.2.tgz#3b61f7ad5c7042a11836b42ce53eba0b37746c80"
+  integrity sha512-fkHcIxHFjNimT9+DuUax92MWpIKxZDMGsAVAM5AK4sE5GEMDVbiSq+ayKWMMYuLPqQn05ZJ01/D27CS7lA624g==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"
@@ -739,6 +766,30 @@
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.5.2.tgz#28f643fbc0bec30b07fbe95b137879b6b4d1c9c5"
   integrity sha512-zrBczSbXKxEyK2ijtbRdICDygRqWSRPpZMN5dD1T8VMEW5RIhIbwFWw2phDRXuBQdVDpSjalCIUMWMV2h3JaZA==
+
+"@miniplex/bucket@2.0.0-next.18":
+  version "2.0.0-next.18"
+  resolved "https://registry.yarnpkg.com/@miniplex/bucket/-/bucket-2.0.0-next.18.tgz#e0d2b2c41b15030241014f1a902ba3a80166cc55"
+  integrity sha512-5ES+tBJEZyL3N9Eq7lCY+esPbDFy7sswrG5mg3QewIa+DoPWcHD8pCw0dper+lFqgidqTVSPr3oMWFHqRcAFZw==
+  dependencies:
+    "@hmans/event" "^0.2.0"
+
+"@miniplex/core@2.0.0-next.20":
+  version "2.0.0-next.20"
+  resolved "https://registry.yarnpkg.com/@miniplex/core/-/core-2.0.0-next.20.tgz#cced8ccbe10c61e049fac54efc3117022e556dc4"
+  integrity sha512-NZKlQQkASZSv/G56zQz78bqlO96VHn9B06fQqM1w1zdKbsybrMPdu91daK0sypAbg8yecJsiO1AfX707gU7s/g==
+  dependencies:
+    "@hmans/event" "^0.2.0"
+    "@miniplex/bucket" "2.0.0-next.18"
+
+"@miniplex/react@2.0.0-next.20":
+  version "2.0.0-next.20"
+  resolved "https://registry.yarnpkg.com/@miniplex/react/-/react-2.0.0-next.20.tgz#bda682212f46f020a8637ef3b0b8abdd86e58161"
+  integrity sha512-7HjyKnD2fdl1XmAEQM2eLILZU6Wc3SbLeTlSF95XXgoQ5dxZsEspBNhK9n5pOClDnLOC6/TgZO5C9bxlZJGgsg==
+  dependencies:
+    "@hmans/use-const" "^0.0.1"
+    "@hmans/use-rerender" "^0.0.2"
+    react-merge-refs "^1.1.0"
 
 "@mischnic/json-sourcemap@^0.1.0":
   version "0.1.0"
@@ -1103,7 +1154,7 @@
     "@parcel/utils" "2.8.2"
     posthtml "^0.16.4"
 
-"@parcel/plugin@2.8.2":
+"@parcel/plugin@2.8.2", "@parcel/plugin@^2.0.0-beta.1":
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/@parcel/plugin/-/plugin-2.8.2.tgz#f8d147cf32e52f7feff245d64d640890a18a6fd9"
   integrity sha512-YG7TWfKsoNm72jbz3b3TLec0qJHVkuAWSzGzowdIhX37cP1kRfp6BU2VcH+qYPP/KYJLzhcZa9n3by147mGcxw==
@@ -2947,6 +2998,11 @@ husky@^8.0.2:
   resolved "https://registry.yarnpkg.com/husky/-/husky-8.0.2.tgz#5816a60db02650f1f22c8b69b928fd6bcd77a236"
   integrity sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==
 
+iceoh@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/iceoh/-/iceoh-1.0.0.tgz#1d8dd480160d290ae770ae936942bd05a988525d"
+  integrity sha512-shyAV4MfLcA3qJqeCFJzYeNDy6aoftTEk4KxKGLLksJjl5jNydBcBKM1o+zWAKqp/l35+xYO3m0tAqqC/cepcQ==
+
 ignore@^5.2.0:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.4.tgz#a291c0c6178ff1b960befe47fcdec301674a6324"
@@ -3772,6 +3828,15 @@ minimatch@^3.0.4, minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2:
   dependencies:
     brace-expansion "^1.1.7"
 
+miniplex@^2.0.0-next.20:
+  version "2.0.0-next.20"
+  resolved "https://registry.yarnpkg.com/miniplex/-/miniplex-2.0.0-next.20.tgz#376c380423841c2ca601ef8e8faf44f679f15f51"
+  integrity sha512-Cf42smGxt2ORoIplvTotMgksfRThtyMeIXXBxtswACj2r6hBKv0xjzpvyz1qgcKUdzxOUpm3Yw3cNhxpUiLp6A==
+  dependencies:
+    "@hmans/queue" "^0.0.1"
+    "@miniplex/core" "2.0.0-next.20"
+    "@miniplex/react" "2.0.0-next.20"
+
 ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
@@ -3961,6 +4026,13 @@ p-try@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
+
+parcel-reporter-static-files-copy@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/parcel-reporter-static-files-copy/-/parcel-reporter-static-files-copy-1.5.0.tgz#8ca7d7e4d1f0f52c30853117403696decf64da24"
+  integrity sha512-dsY3MQkbYSgEqS0/22vtD2mZtel8UC0ItH0ok8LmgFeCMTsdhyOtJgvt945ODIzu9lYc/sCIzksM8C77uSE3Fg==
+  dependencies:
+    "@parcel/plugin" "^2.0.0-beta.1"
 
 parcel@^2.8.2:
   version "2.8.2"
@@ -4229,6 +4301,11 @@ react-is@^18.0.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 react-refresh@^0.9.0:
   version "0.9.0"

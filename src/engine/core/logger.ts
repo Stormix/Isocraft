@@ -1,5 +1,5 @@
-import { APP_NAME } from '../config/constants'
 import { Service } from 'diod'
+import { APP_NAME } from '../config/constants'
 
 type LogLevelType = 'debug' | 'error' | 'info' | 'log' | 'warn'
 

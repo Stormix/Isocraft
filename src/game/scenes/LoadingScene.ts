@@ -86,4 +86,8 @@ export class LoadingScene extends Scene {
   public stop(): void {
     super.stop()
   }
+
+  update(_: number): void {
+    // Pass
+  }
 }

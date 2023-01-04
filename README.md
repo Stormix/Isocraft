@@ -16,8 +16,11 @@ A rewrite of my old game engine [Clockwork](https://github.com/Stormix/Clockwork
 - https://makham.itch.io/pixel-composer (To make pixel art)
 - https://github.com/holywyvern/pixi-isometric-tilemaps
 - https://pixijs.io/guides/basics/containers.html
+- https://www.leshylabs.com/apps/sstool/
 
 ### Resources:
 - https://clintbellanger.net/articles/isometric_math/
 - https://clintbellanger.net/articles/treasure/
 - https://itnext.io/entity-component-system-in-action-with-typescript-f498ca82a08e
+- https://lastolivegames.github.io/becsy/guide/getting-started.html#adding-becsy-to-your-project
+-

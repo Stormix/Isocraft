@@ -1,17 +1,22 @@
+import { Service } from 'diod'
+import { World } from 'miniplex'
+import { Spritesheet } from 'pixi.js'
 import Engine from '../engine'
+import { Entity } from '../engine/core/entity'
+import { Renderer } from '../engine/core/renderer'
 import { Scene } from '../engine/core/scene'
 import { Event } from '../engine/events/Event'
 import { Process } from '../engine/interfaces/process'
 import { Events } from './events'
-import { Service } from 'diod'
-import { Renderer } from '../engine/core/renderer'
 import { LoadingScene } from './scenes/LoadingScene'
 
 @Service()
 export default class Game implements Process {
   private _scene?: Scene
   private _loadingProgress = 0
-  private _assets: string[] = []
+  private _assets: string[] = ['sprites/blocks/blocks.json']
+  private _spritesheets: Spritesheet[] = []
+  private _world: World
 
   get scene(): Scene {
     return this._scene as Scene // There's always a scene at this point
@@ -42,12 +47,21 @@ export default class Game implements Process {
     return this._engine.logger
   }
 
+  get spritesheets(): Spritesheet[] {
+    return this._spritesheets
+  }
+
   public onResize() {
     // Resize scene?
   }
 
   constructor(private _engine: Engine) {
     this._scene = new LoadingScene(this)
+    this._world = new World<Entity>()
+  }
+
+  get world(): World<Entity> {
+    return this._world
   }
 
   load(): void {
@@ -63,7 +77,17 @@ export default class Game implements Process {
       this._engine.eventBus.publish(new Event(Events.LOADING_COMPLETE, null))
     })
 
-    this._engine.loader.add(this._assets).load()
+    this.logger.info('World created.')
+    this._engine.loader.add(this._assets).load((_, resources) => {
+      this.logger.info('Resources loaded.', resources)
+
+      for (const key in resources) {
+        if (resources?.[key]?.spritesheet) {
+          this._spritesheets.push(resources[key].spritesheet as Spritesheet)
+        }
+      }
+      this.logger.info('Spritesheets loaded.', this._spritesheets)
+    })
   }
 
   start(): void {
@@ -79,8 +103,8 @@ export default class Game implements Process {
     if (this._scene) this._scene.update(delta)
   }
 
-  render(_renderer: Renderer) {
-    if (this._scene) _renderer.render(this._scene)
+  render(renderer: Renderer) {
+    if (this._scene) renderer.render(this._scene)
   }
 
   switchScene(scene: Scene) {

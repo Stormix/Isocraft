@@ -1,6 +1,8 @@
 import { Viewport } from 'pixi-viewport'
 import Game from '..'
+import { Entity } from '../../engine/core/entity'
 import { Scene } from '../../engine/core/scene'
+import { Block } from '../entities/block'
 
 export class GameScene extends Scene {
   private _game: Game
@@ -28,10 +30,22 @@ export class GameScene extends Scene {
 
   public start(): void {
     super.start()
+
+    this.addEntity(new Block(this._game))
   }
 
   public stop(): void {
     super.stop()
+  }
+
+  addEntity(entity: Entity) {
+    // Add entity to the world (ECS)
+    this._game.world.add(entity)
+
+    // Register sprite component
+    if (entity.sprite) {
+      this._viewport.addChild(entity.sprite)
+    }
   }
 
   public update(_deltaTime: number): void {}
