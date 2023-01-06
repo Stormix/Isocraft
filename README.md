@@ -3,6 +3,9 @@
 
 A rewrite of my old game engine [Clockwork](https://github.com/Stormix/Clockwork).
 
+### Latest preview:
+![Isocraft](current.png)
+
 ### Assets:
 - Palette: https://lospec.com/palette-list/the-y-gigante-reverted
 - https://dani-maccari.itch.io/tiny-blocks-isometric-pixel-assets
