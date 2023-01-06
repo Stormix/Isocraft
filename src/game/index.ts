@@ -1,6 +1,6 @@
 import { Service } from 'diod'
 import { World } from 'miniplex'
-import { Spritesheet } from 'pixi.js'
+import { SCALE_MODES, Spritesheet } from 'pixi.js'
 import Engine from '../engine'
 import { Entity } from '../engine/core/entity'
 import { Renderer } from '../engine/core/renderer'
@@ -20,6 +20,10 @@ export default class Game implements Process {
 
   get scene(): Scene {
     return this._scene as Scene // There's always a scene at this point
+  }
+
+  get renderer(): Renderer {
+    return this._engine.renderer
   }
 
   get engine(): Engine {
@@ -73,21 +77,22 @@ export default class Game implements Process {
       this.loadingProgress = loader.progress
     })
 
-    this._engine.loader.onComplete.add(() => {
+    this._engine.loader.onComplete.add((_, resources) => {
+      this.logger.info('Resources loaded.', resources)
+
+      for (const key in resources) {
+        if (resources[key].spritesheet) {
+          resources[key].spritesheet!.baseTexture.scaleMode = SCALE_MODES.NEAREST
+          this._spritesheets.push(resources[key].spritesheet as Spritesheet)
+        }
+      }
+
+      this.logger.info('Spritesheets loaded.', this._spritesheets)
       this._engine.eventBus.publish(new Event(Events.LOADING_COMPLETE, null))
     })
 
     this.logger.info('World created.')
-    this._engine.loader.add(this._assets).load((_, resources) => {
-      this.logger.info('Resources loaded.', resources)
-
-      for (const key in resources) {
-        if (resources?.[key]?.spritesheet) {
-          this._spritesheets.push(resources[key].spritesheet as Spritesheet)
-        }
-      }
-      this.logger.info('Spritesheets loaded.', this._spritesheets)
-    })
+    this._engine.loader.add(this._assets).load()
   }
 
   start(): void {

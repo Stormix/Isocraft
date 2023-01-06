@@ -4,6 +4,7 @@ import { Process } from '../interfaces/process'
 export abstract class Scene extends Container implements Process {
   constructor() {
     super()
+    this.sortableChildren = true
     this.visible = false
   }
   start() {
@@ -11,6 +12,10 @@ export abstract class Scene extends Container implements Process {
   }
   stop() {
     this.visible = false
+
+    this.children.forEach((child) => {
+      this.removeChild(child)
+    })
   }
 
   abstract update(deltaTime: number): void

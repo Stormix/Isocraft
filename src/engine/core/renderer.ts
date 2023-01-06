@@ -7,7 +7,7 @@ export class Renderer extends _Renderer {
       width,
       height,
       view: canvas,
-      backgroundColor: Color({ r: 0, g: 0, b: 0 }).rgbNumber()
+      backgroundColor: Color({ r: 0, g: 0, b: 10 }).rgbNumber()
     })
   }
 }

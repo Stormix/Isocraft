@@ -1,12 +1,24 @@
+import { Vector3 } from '@math.gl/core'
+import { IsoTilemap, MIDDLE } from 'iceoh'
 import { Viewport } from 'pixi-viewport'
 import Game from '..'
+import { SPRITE_SIZE, WORLD_SIZE } from '../../engine/config/constants'
 import { Entity } from '../../engine/core/entity'
 import { Scene } from '../../engine/core/scene'
 import { Block } from '../entities/block'
 
 export class GameScene extends Scene {
-  private _game: Game
+  private readonly _game: Game
   private _viewport: Viewport
+  private _map: IsoTilemap<Entity>
+
+  get game(): Game {
+    return this._game
+  }
+
+  get map(): IsoTilemap<Entity> {
+    return this._map
+  }
 
   constructor(game: Game) {
     super()
@@ -19,19 +31,37 @@ export class GameScene extends Scene {
     this._viewport = new Viewport({
       screenWidth: window.innerWidth,
       screenHeight: window.innerHeight,
-      worldWidth: 1000,
-      worldHeight: 1000
+      worldWidth: WORLD_SIZE,
+      worldHeight: WORLD_SIZE
+    })
+
+    this._map = new IsoTilemap<Entity>({
+      getGlobalDimensions: () => this._game.engine.viewport.getBoundingClientRect(),
+      getWorldPosition: () => this._viewport.position,
+      getWorldScale: () => ({ x: this._viewport.scale.x * 10, y: this._viewport.scale.y * 10 }),
+      worldOrigin: MIDDLE,
+      baseTileDimensions: {
+        width: SPRITE_SIZE,
+        height: SPRITE_SIZE,
+        depth: SPRITE_SIZE / 2 // how many pixels tall is the front edge of the tile
+      }
     })
 
     this.addChild(this._viewport)
-    // activate plugins
+
+    // Activate plugins
     this._viewport.drag().pinch().wheel().decelerate()
   }
 
   public start(): void {
     super.start()
 
-    this.addEntity(new Block(this._game))
+    // Draw an 8 x 8 plane of blocks
+    for (let x = 0; x < 100; x++) {
+      for (let y = 0; y < 100; y++) {
+        this.addEntity(new Block(this, new Vector3(x, y, 0)))
+      }
+    }
   }
 
   public stop(): void {

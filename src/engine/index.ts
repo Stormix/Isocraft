@@ -50,6 +50,10 @@ export default class Engine {
     return this._loader
   }
 
+  get renderer() {
+    return this._renderer
+  }
+
   get time() {
     return this._gameTime
   }

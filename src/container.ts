@@ -2,8 +2,8 @@ import 'reflect-metadata'
 
 import { ContainerBuilder } from 'diod'
 import Engine from './engine'
-import Logger from './engine/core/logger'
 import { EventBus } from './engine/Events/bus'
+import Logger from './engine/core/logger'
 
 const builder = new ContainerBuilder()
 

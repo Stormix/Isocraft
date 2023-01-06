@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "parcel index.html",
+    "dev": "parcel --no-cache index.html",
     "build": "parcel build src/main.ts",
     "check": "tsc --noEmit",
     "test:watch": "jest --watch",
@@ -50,6 +50,7 @@
     ]
   },
   "dependencies": {
+    "@math.gl/core": "^3.6.3",
     "color": "^4.2.3",
     "diod": "^2.0.0",
     "iceoh": "^1.0.0",
