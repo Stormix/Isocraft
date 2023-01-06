@@ -2,7 +2,7 @@ import { Service } from 'diod'
 import { World } from 'miniplex'
 import { SCALE_MODES, Spritesheet } from 'pixi.js'
 import Engine from '../engine'
-import { Entity } from '../engine/core/entity'
+import { IEntity } from '../engine/core/entity'
 import { Renderer } from '../engine/core/renderer'
 import { Scene } from '../engine/core/scene'
 import { Event } from '../engine/events/Event'
@@ -55,16 +55,12 @@ export default class Game implements Process {
     return this._spritesheets
   }
 
-  public onResize() {
-    // Resize scene?
-  }
-
   constructor(private _engine: Engine) {
     this._scene = new LoadingScene(this)
-    this._world = new World<Entity>()
+    this._world = new World<IEntity>()
   }
 
-  get world(): World<Entity> {
+  get world(): World<IEntity> {
     return this._world
   }
 
@@ -87,7 +83,6 @@ export default class Game implements Process {
         }
       }
 
-      this.logger.info('Spritesheets loaded.', this._spritesheets)
       this._engine.eventBus.publish(new Event(Events.LOADING_COMPLETE, null))
     })
 
